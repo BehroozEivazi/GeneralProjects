@@ -34,6 +34,7 @@ display(sep_coins)
 """
 
 """
+
 with complex image 
 
 """
@@ -53,9 +54,10 @@ kernel = np.ones((5, 5), np.uint8)
 
 opening = cv2.morphologyEx(img_thresh, cv2.MORPH_OPEN, kernel, iterations=2)
 sure_bg = cv2.dilate(opening, kernel=kernel, iterations=1)
-# chize dige ke vojod dare mikhym peen haro az ham joda konim ke inja mirim soragh distance trasnform
 
+# chize dige ke vojod dare mikhym peen haro az ham joda konim ke inja mirim soragh distance trasnform
 dist_transform = cv2.distanceTransform(opening, cv2.DIST_L2, 5)
+
 ret, sure_fg = cv2.threshold(dist_transform, 0.7 * dist_transform.max(), 255, 0)
 
 sure_fg = np.uint8(sure_fg)
